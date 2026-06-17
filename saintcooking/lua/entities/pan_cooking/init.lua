@@ -37,7 +37,7 @@ function ENT:StartTouch(ent)
             end
         end
 
-        if ispremade or string.StartsWith(stringpath, "models/foodnhouseholditems/") then
+        if ispremade then
             
             ent.IsCookingIngredient = true
             local nameFirst = string.GetFileFromFilename(ent:GetModel())

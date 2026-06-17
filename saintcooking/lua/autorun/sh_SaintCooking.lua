@@ -54,6 +54,12 @@ cookinrecipes = {
         cooktime = 10,
         name = "Cooked Meat",
         model = "models/foodnhouseholditems/meat8.mdl"
+    },
+    cookies = {
+        recipe = {"Sugar", "Sugar", "Butter", "Butter", "Flour", "Flour", "Kinder"},
+        cooktime = 20,
+        name = "Noors Cookies!",
+        model = "models/lil_prin/monsterhunter/iceborne/food/platters/individual/cookie1.mdl"
     }
 }
 
@@ -114,10 +120,67 @@ cookinIngrediants = {
         name = "Cooking Oil",
         model = "models/foodnhouseholditems/lemoncleaner.mdl",
         id = 10
+    },
+    cookies = {
+        name = "Noors Cookies",
+        model = "models/lil_prin/monsterhunter/iceborne/food/platters/individual/cookie1.mdl",
+        id = 11
+    },
+    sugar = {
+        name = "Sugar",
+        model = "models/illusion/eftcontainers/sugar.mdl",
+        id = 12
+    },
+    butter = {
+        name = "Butter",
+        model = "models/griim/foodpack/twinkie.mdl",
+        id = 13
+    },
+    kinder = {
+        name = "Kinder",
+        model = "models/foodnhouseholditems/kinderbox.mdl",
+        id = 14
     }
 }
 
 foodeffects = {
+
+    cookies = {
+        id = 11,
+        eat = function(ply)
+            ply:ChatPrint("I've never had better sweets!")
+            ply:SetHealth(ply:Health() + 50)
+            ply:SetArmor(ply:Armor() + 20)
+            ply:SetRunSpeed(ply:GetRunSpeed() + 20)
+            ply:EmitSound("npc/barnacle/barnacle_crunch2.wav",75,100,1)
+        end
+    },
+
+    sugar = {
+        id = 12,
+        eat = function(ply)
+            ChatPrint("Why am I eating sugar standalone, what am I five?")
+            ply:EmitSound("npc/barnacle/barnacle_crunch2.wav",75,100,1)
+        end
+    },
+
+    butter = {
+        id = 13,
+        eat =  function(ply)
+            ChatPrint("Butta")
+            ply:EmitSound("npc/barnacle/barnacle_crunch2.wav",75,100,1)
+        end
+    },
+
+    kinder =  {
+        id = 14,
+        eat = function(ply)
+            ply:ChatPrint("Tastes like am six again.")
+            ply:SetHealth(ply:Health() + 10)
+            ply:EmitSound("npc/barnacle/barnacle_crunch2.wav",75,100,1)
+        end
+    },
+
     flour = {
         id = 0,
         eat = function(ply)

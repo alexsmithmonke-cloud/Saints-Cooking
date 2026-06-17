@@ -3,7 +3,7 @@ ENT.Base = "base_gmodentity"
 
 ENT.PrintName   = "Cooking Stove"
 ENT.Information = "Use this cool ass stove to cook!"
-ENT.Author      = "Breakin Good!"
+ENT.Author      = "SinningSaint"
 ENT.Spawnable   = true
 ENT.Category    = "Cookin'"
 
