@@ -79,7 +79,6 @@ function DrawMenu(ply)
                 itemfood.DoClick = function()
                     net.Start("SpawnInFoodAdmin")
                         net.WriteTable(fooddata)
-                        net.WriteEntity(LocalPlayer())
                     net.SendToServer()
                 end
                 stage = stage + 1

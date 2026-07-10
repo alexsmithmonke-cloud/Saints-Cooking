@@ -274,21 +274,21 @@ cuttable = {
 
 ItemsInAddon = {
     Pan = {
-        itemclass = "pan_cooking",
+        itemclass = "pan_saintscooking",
         name = "Pan"
     },
 
     Stove = {
-        itemclass = "cooking",
+        itemclass = "stove_saintscooking",
         name = "Stove"
     },
 
     CuttingBoard = {
-        itemclass = "cutting_cooking",
+        itemclass = "cuttingboard__saintscooking",
         name = "Cutting Board"
     },
 
-    GasStove = {
+    FuelForStove = {
         itemclass = "prop_physics",
         name = "Gas Tank",
         model = "models/illusion/eftcontainers/propanetank.mdl"

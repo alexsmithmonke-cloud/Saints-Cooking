@@ -2,10 +2,10 @@ util.AddNetworkString("SpawnInFoodAdmin")
 util.AddNetworkString("SpawnInItemAdmin")
 
 
-net.Receive("SpawnInFoodAdmin", function()
+net.Receive("SpawnInFoodAdmin", function(len, ply)
+    if not ply:IsAdmin() then return end
     local fooddata = net.ReadTable()
-    local ply = net.ReadEntity()
-    local newfood = ents.Create("fooditem")
+    local newfood = ents.Create("fooditem_saintscooking")
     local plyeye = ply:GetEyeTrace()
     local pos = plyeye.HitPos
     pos = pos + Vector(0,0,10)
@@ -23,9 +23,9 @@ net.Receive("SpawnInFoodAdmin", function()
     end
 end)
 
-net.Receive("SpawnInItemAdmin", function()
+net.Receive("SpawnInItemAdmin", function(len, ply)
+    if not ply:IsAdmin() then return end
     local itemdata = net.ReadTable()
-    local ply = net.ReadEntity()
     local itemclass = itemdata.itemclass
     local newitem = ents.Create(itemclass)
     local plyeye = ply:GetEyeTrace()
