@@ -35,7 +35,7 @@ function ENT:Draw()
     ------ Welcome to elseif hell CL verison
     if GradeOfFood == -1 then
         quality = "Burnt"
-        color = Color(0,0,0)
+        color = Color(59,15,15)
     elseif GradeOfFood == -2 then
         quality = "Raw"
         color = Color(202,104,104)
