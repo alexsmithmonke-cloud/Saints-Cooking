@@ -1,19 +1,28 @@
 /* template for your amusement
-    This is for recipes
+This is for recipes
 burgergtaiv = { 
-    recipe = {"bacon", "bread_slice"}, 
+    recipe = {cookinIngrediants.cookedmeat.name, cookinIngrediants.breadslice.name}, 
     cooktime = 10, 
     name = "Burger!",
     model = "models/foodnhouseholditems/cheerios.mdl" 
     }
-    This is for ingeridents
+This is for ingeridents
 flour = {
         name = "Flour",
         model = "models/hlvr/food/bag_flour_1.mdl"
         id = 0 --This number is an ID and must not equal any other.
     },
-NOTE: For the recipe if it contains custom ingreditants or renamed ingrediants they are letter sensetive, they *must* match up excatly, caps doesn't matter.
-I reccomend for each recipe you add an ingeridnat with the name of the result of the recipe so when put in a pan it gives a proper name and not stuff like burgergtaiv
+This is for effects
+cookies = {
+        id = 11,
+        eat = function(ply, modifer)
+            ply:ChatPrint("I've never had better sweets!")
+            ply:SetHealth(ply:Health() + 50 + modifer)
+            ply:SetArmor(ply:Armor() + 20)
+            ply:SetRunSpeed(ply:GetRunSpeed() + 20)
+            ply:EmitSound("npc/barnacle/barnacle_crunch2.wav",75,100,1)
+        end
+    },
     */
 
 if SERVER then
@@ -21,61 +30,6 @@ if SERVER then
 elseif CLIENT then
     print("[Saint's Cooking] Client-side addon loaded")
 end
-
-
-cookinrecipes = {
-    EmptyPan = {
-        recipe = {"EmptyPan"},
-        cooktime = 0,
-        name = "EmptyPan",
-        model = ""
-    },
-    mess = {
-        recipe = {"Disgusting mess"},
-        cooktime = 0,
-        name = "Disgusting mess",
-        model = "models/props_junk/shoe001a.mdl"
-    },
- -------------------------------------------------------Do not touch the above
-    burgergtaiv = {
-        recipe = {"Cooked Meat", "bread slice"},
-        cooktime = 10,
-        name = "Burger",
-        model = "models/foodnhouseholditems/burgergtaiv.mdl"
-    },
-    bananna_bunch = {
-        recipe = {"bananna", "bananna", "bananna"},
-        cooktime = 15,
-        name = "Banannas",
-        model = "models/foodnhouseholditems/bananna_bunch.mdl"
-    },
-
-    bread = {
-        recipe = {"Flour", "Flour"},
-        cooktime = 10,
-        name = "Bread",
-        model = "models/foodnhouseholditems/bread-3.mdl"
-    },
-    cake = {
-        recipe = {"Egg", "Egg", "Milk", "Flour" },
-        cooktime = 30,
-        name = "Cake",
-        model = "models/foodnhouseholditems/cake.mdl"
-    },
-    cookedmeat = {
-        recipe = {"Cooking Oil", "Raw Meat"},
-        cooktime = 10,
-        name = "Cooked Meat",
-        model = "models/foodnhouseholditems/meat8.mdl"
-    },
-    cookies = {
-        recipe = {"Sugar", "Sugar", "Butter", "Butter", "Flour", "Flour", "Kinder"},
-        cooktime = 20,
-        name = "Noors Cookies!",
-        model = "models/lil_prin/monsterhunter/iceborne/food/platters/individual/cookie1.mdl"
-    }
-}
-
 
 cookinIngrediants = {
 
@@ -153,6 +107,54 @@ cookinIngrediants = {
         name = "Kinder",
         model = "models/foodnhouseholditems/kinderbox.mdl",
         id = 14
+    }
+}
+
+cookinrecipes = {
+-------------------------------------------------------Do not touch the Below
+    EmptyPan = {
+        recipe = {"EmptyPan"},
+        cooktime = 0,
+        name = "EmptyPan",
+        model = ""
+    },
+    mess = {
+        recipe = {"Disgusting mess"},
+        cooktime = 0,
+        name = "Disgusting mess",
+        model = "models/props_junk/shoe001a.mdl"
+    },
+ -------------------------------------------------------Do not touch the above
+    burgergtaiv = {
+        recipe = {cookinIngrediants.cookedmeat.name, cookinIngrediants.breadslice.name},
+        cooktime = 10,
+        name = "Burger",
+        model = "models/foodnhouseholditems/burgergtaiv.mdl"
+    },
+
+    bread = {
+        recipe = {cookinIngrediants.flour.name, cookinIngrediants.flour.name},
+        cooktime = 10,
+        name = "Bread",
+        model = "models/foodnhouseholditems/bread-3.mdl"
+    },
+    cake = {
+        recipe = {cookinIngrediants.egg.name, cookinIngrediants.egg.name, cookinIngrediants.milk.name, cookinIngrediants.flour.name},
+        cooktime = 30,
+        name = "Cake",
+        model = "models/foodnhouseholditems/cake.mdl"
+    },
+    cookedmeat = {
+        recipe = {cookinIngrediants.cookingoil.name, cookinIngrediants.uncookedmeat.name},
+        cooktime = 10,
+        name = "Cooked Meat",
+        model = "models/foodnhouseholditems/meat8.mdl"
+    },
+    cookies = {
+        recipe = {cookinIngrediants.sugar.name, cookinIngrediants.sugar.name, cookinIngrediants.butter.name, cookinIngrediants.butter.name, cookinIngrediants.flour.name, cookinIngrediants.flour.name, cookinIngrediants.kinder.name},
+        cooktime = 20,
+        name = "Noors Cookies!",
+        model = "models/lil_prin/monsterhunter/iceborne/food/platters/individual/cookie1.mdl"
     }
 }
 
